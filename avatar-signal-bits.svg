@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="800" height="800">
+  <title>Signal &amp; Byte avatar: signal-strength bars built from pixels</title>
+  <rect width="64" height="64" fill="#0E1424"/>
+  <g fill="#F3F5FA">
+    <rect x="10" y="46" width="9" height="9" rx="1.5"/>
+    <rect x="22" y="46" width="9" height="9" rx="1.5"/>
+    <rect x="22" y="34" width="9" height="9" rx="1.5"/>
+    <rect x="34" y="46" width="9" height="9" rx="1.5"/>
+    <rect x="34" y="34" width="9" height="9" rx="1.5"/>
+    <rect x="34" y="22" width="9" height="9" rx="1.5"/>
+  </g>
+  <g fill="#3D5CFF">
+    <rect x="46" y="46" width="9" height="9" rx="1.5"/>
+    <rect x="46" y="34" width="9" height="9" rx="1.5"/>
+    <rect x="46" y="22" width="9" height="9" rx="1.5"/>
+  </g>
+  <rect x="46" y="10" width="9" height="9" rx="1.5" fill="#FFB020"/>
+</svg>

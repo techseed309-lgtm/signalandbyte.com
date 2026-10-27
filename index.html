@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal &amp; Byte · Tech news, decoded.</title>
+<meta name="description" content="Signal & Byte explains the tech news that matters: what happened, how it works, and what it means, with the sources behind every story.">
+<link rel="canonical" href="https://signalandbyte.com/">
+<meta property="og:title" content="Signal & Byte · Tech news, decoded.">
+<meta property="og:description" content="What happened, how it works, and what it means. Every story sourced.">
+<meta property="og:url" content="https://signalandbyte.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://signalandbyte.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0E1424">
+<link rel="icon" href="avatar-signal-bits.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Schibsted+Grotesk:wght@400;700&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Signal & Byte","url":"https://signalandbyte.com/",
+ "logo":"https://signalandbyte.com/avatar-signal-bits.svg","slogan":"Tech news, decoded.",
+ "email":"hello@signalandbyte.com",
+ "sameAs":["https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig","https://www.tiktok.com/@signalandbyte","https://x.com/techseedhq"]}
+</script>
+<style>
+  :root { --ink:#0E1424; --ink2:#141C33; --panel:#172038; --line:#232E4D; --paper:#F3F5FA; --soft:#C9CFDD;
+          --cobalt:#3D5CFF; --amber:#FFB020; --static:#8A93A8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--ink); color:var(--paper); font:400 17px/1.6 "Schibsted Grotesk",system-ui,sans-serif; }
+  a { color:inherit; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  .mono { font:400 13px/1.4 "Martian Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--static); }
+  h1,h2,h3 { font-family:"Unbounded",sans-serif; line-height:1.1; letter-spacing:-.01em; }
+  h2 { font-size:clamp(26px,4.5vw,40px); font-weight:800; margin:10px 0 18px; }
+  h3 { font-size:19px; font-weight:700; margin-bottom:8px; }
+  .s { color:var(--cobalt); } .b { color:var(--amber); }
+
+  header { position:sticky; top:0; z-index:5; background:rgba(14,20,36,.88); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; height:64px; gap:16px; }
+  .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font:700 16px "Unbounded",sans-serif; white-space:nowrap; }
+  .brand svg { width:56px; height:auto; }
+  nav { display:flex; gap:22px; font-weight:700; font-size:15px; }
+  nav a { text-decoration:none; color:var(--soft); } nav a:hover { color:var(--paper); }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:10px; font-weight:700; text-decoration:none; border:1px solid var(--line); background:var(--panel); }
+  .btn.primary { background:var(--cobalt); border-color:var(--cobalt); }
+  .btn:hover { border-color:var(--amber); }
+  @media (max-width:640px){ nav { display:none; } }
+
+  .hero { padding:88px 0 72px; position:relative; overflow:hidden; }
+  .hero h1 { font-size:clamp(40px,8vw,84px); font-weight:800; margin:16px 0 22px; max-width:12ch; }
+  .hero p.lede { font-size:clamp(18px,2.4vw,21px); color:var(--soft); max-width:56ch; margin-bottom:32px; }
+  .hero .cta { display:flex; flex-wrap:wrap; gap:12px; }
+  .wave { position:absolute; right:-40px; top:40px; width:560px; max-width:70vw; opacity:.18; pointer-events:none; }
+
+  section { padding:72px 0; border-top:1px solid var(--line); }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:760px){ .split { grid-template-columns:1fr; } }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:28px; }
+  .card.sig { border-top:4px solid var(--cobalt); } .card.byt { border-top:4px solid var(--amber); }
+  .card p { color:var(--soft); }
+
+  .video { position:relative; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:var(--ink2); }
+  .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .under { margin-top:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; color:var(--soft); }
+
+  .topics { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .topic { background:var(--ink2); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .topic p { color:var(--soft); font-size:15px; }
+
+  .promise { list-style:none; display:grid; gap:14px; margin-top:8px; }
+  .promise li { padding-left:28px; position:relative; color:var(--soft); }
+  .promise li::before { content:""; position:absolute; left:0; top:.55em; width:12px; height:12px; border-radius:3px; background:var(--amber); }
+  .promise strong { color:var(--paper); }
+
+  .contact { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+  .contact a.card { text-decoration:none; display:block; }
+  .contact a.card:hover { border-color:var(--cobalt); }
+  .contact .addr { color:var(--amber); font-weight:700; word-break:break-all; }
+
+  footer { border-top:1px solid var(--line); padding:36px 0 48px; color:var(--static); font-size:14px; }
+  footer .wrap { display:flex; flex-wrap:wrap; gap:16px 28px; justify-content:space-between; align-items:center; }
+  footer .links { display:flex; gap:20px; }
+  footer a { text-decoration:none; } footer a:hover { color:var(--paper); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Signal &amp; Byte home">
+      <svg viewBox="0 0 160 64" aria-hidden="true">
+        <path d="M8 32 C18 8, 28 8, 38 32 S58 56, 68 32" fill="none" stroke="#3D5CFF" stroke-width="6" stroke-linecap="round"/>
+        <g fill="#FFB020"><rect x="78" y="42" width="7" height="10" rx="1.5"/><rect x="88" y="12" width="7" height="40" rx="1.5"/><rect x="98" y="42" width="7" height="10" rx="1.5"/><rect x="108" y="12" width="7" height="40" rx="1.5"/><rect x="118" y="42" width="7" height="10" rx="1.5"/><rect x="128" y="42" width="7" height="10" rx="1.5"/><rect x="138" y="12" width="7" height="40" rx="1.5"/><rect x="148" y="12" width="7" height="40" rx="1.5"/></g>
+      </svg>
+      Signal &amp; Byte
+    </a>
+    <nav aria-label="Sections">
+      <a href="#watch">Watch</a><a href="#about">About</a><a href="#partners">Work with us</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <svg class="wave" viewBox="0 0 160 64" aria-hidden="true"><path d="M8 32 C18 8, 28 8, 38 32 S58 56, 68 32 S88 8, 98 32 S118 56, 128 32 S148 8, 158 32" fill="none" stroke="#3D5CFF" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="wrap">
+      <p class="mono">Tech news, decoded.</p>
+      <h1>The <span class="s">signal</span> and the <span class="b">byte</span>.</h1>
+      <p class="lede">The signal is what happened. The byte is how it actually works. We take one tech story at a time,
+        break it down, test the claims and show you what it means, with every source linked.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1">Subscribe on YouTube</a>
+        <a class="btn" href="#watch">Watch the latest</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="watch">
+    <div class="wrap">
+      <p class="mono">Latest videos</p>
+      <h2>Start watching</h2>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUQav0b3vZaTlio1zetRh4ig" title="Signal &amp; Byte latest videos" loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="under">
+        <span>Use the playlist menu in the player to browse every episode.</span>
+        <a class="btn" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig/videos">All videos on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="mono">About</p>
+      <h2>Two halves of every story</h2>
+      <div class="split">
+        <div class="card sig"><h3><span class="s">Signal</span>: what happened</h3>
+          <p>The news itself, taken from the source first: the paper, the lab post, the filing or the changelog, not the headline about it.</p></div>
+        <div class="card byt"><h3><span class="b">Byte</span>: how it works</h3>
+          <p>The mechanism underneath, explained so it clicks, then cross-examined: the strongest counter-argument, the limits, and what it means for you.</p></div>
+      </div>
+
+      <div class="topics" style="margin-top:28px">
+        <div class="topic"><h3>AI and agents</h3><p>New models and tools, what they really do, and where they fail.</p></div>
+        <div class="topic"><h3>Builds and tests</h3><p>Real projects, built and measured on screen, results included.</p></div>
+        <div class="topic"><h3>Security and privacy</h3><p>How systems break, how data leaks, and the fixes that work.</p></div>
+        <div class="topic"><h3>The future of dev</h3><p>How software work is changing, minus the hype.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="mono">Work with us</p>
+        <h2>Sponsorships and partnerships</h2>
+        <p style="color:var(--soft)">We work with companies whose products our audience of developers, builders and curious
+          tech viewers would actually use. Tell us about your product and what you have in mind.</p>
+        <p style="margin-top:22px"><a class="btn primary" href="mailto:business@signalandbyte.com?subject=Partnership%20inquiry">business@signalandbyte.com</a></p>
+      </div>
+      <div class="card">
+        <h3>How we work</h3>
+        <ul class="promise">
+          <li><strong>Always labelled.</strong> Sponsored segments are disclosed in the video and the description.</li>
+          <li><strong>Our words, our view.</strong> Sponsors never review or change our reporting.</li>
+          <li><strong>Only what we would use.</strong> We test before we say yes, and we say no often.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="mono">Contact</p>
+      <h2>Get in touch</h2>
+      <div class="contact">
+        <a class="card" href="mailto:hello@signalandbyte.com"><h3>Say hello</h3><p>Tips, corrections, video ideas.</p><p class="addr">hello@signalandbyte.com</p></a>
+        <a class="card" href="mailto:business@signalandbyte.com"><h3>Business</h3><p>Sponsorships and partnerships.</p><p class="addr">business@signalandbyte.com</p></a>
+        <a class="card" href="mailto:press@signalandbyte.com"><h3>Press</h3><p>Interviews and media requests.</p><p class="addr">press@signalandbyte.com</p></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Signal &amp; Byte · Tech news, decoded.</span>
+    <div class="links">
+      <a href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig">YouTube</a>
+      <a href="https://www.tiktok.com/@signalandbyte">TikTok</a>
+      <a href="https://x.com/techseedhq">X</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
