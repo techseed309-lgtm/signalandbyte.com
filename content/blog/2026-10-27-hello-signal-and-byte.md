@@ -30,4 +30,4 @@ Tell us at [hello@signalandbyte.com](mailto:hello@signalandbyte.com?subject=Corr
 - Sponsorships and partnerships: [business@signalandbyte.com](mailto:business@signalandbyte.com)
 - Press: [press@signalandbyte.com](mailto:press@signalandbyte.com)
 
-And if you'd like the next story first, [subscribe on YouTube](https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1), or follow us on [TikTok](https://www.tiktok.com/@signalandbyte), [X](https://x.com/techseedhq) and [LinkedIn](https://www.linkedin.com/company/signalandbyte). Prefer a feed reader? There's [RSS](/feed.xml) too.
+And if you'd like the next story first, [subscribe on YouTube](https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1), or follow us on [TikTok](https://www.tiktok.com/@signalandbyte), [X](https://x.com/signalandbyte) and [LinkedIn](https://www.linkedin.com/company/signalandbyte). Prefer a feed reader? There's [RSS](/feed.xml) too.

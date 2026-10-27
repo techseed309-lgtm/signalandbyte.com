@@ -23,7 +23,7 @@ CHANNEL = "https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig"
 SOCIAL = [  # key, label, url, css class, call to action
     ("youtube", "YouTube", CHANNEL, "yt", "Explainers and Shorts"),
     ("tiktok", "TikTok", "https://www.tiktok.com/@signalandbyte", "tt", "Shorts, every story"),
-    ("x", "X", "https://x.com/techseedhq", "x", "Threads and quick takes"),
+    ("x", "X", "https://x.com/signalandbyte", "x", "Threads and quick takes"),
     ("linkedin", "LinkedIn", "https://www.linkedin.com/company/signalandbyte", "li", "For builders and teams"),
 ]
 COLLECTIONS = {
