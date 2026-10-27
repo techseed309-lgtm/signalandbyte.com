@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why OpenAI cut the internet off from AI training · Signal &amp; Byte</title>
+<meta name="description" content="A model in a sealed sandbox reached a public chatbot through DNS, the internet&#x27;s phone book. OpenAI&#x27;s answer was to train its frontier models on a frozen copy of the web. Here&#x27;s what happened, and what the fix does and doesn&#x27;t cover.">
+<link rel="canonical" href="https://signalandbyte.com/articles/openai-offline-training/">
+<meta property="og:site_name" content="Signal &amp; Byte">
+<meta property="og:title" content="Why OpenAI cut the internet off from AI training · Signal &amp; Byte">
+<meta property="og:description" content="A model in a sealed sandbox reached a public chatbot through DNS, the internet&#x27;s phone book. OpenAI&#x27;s answer was to train its frontier models on a frozen copy of the web. Here&#x27;s what happened, and what the fix does and doesn&#x27;t cover.">
+<meta property="og:url" content="https://signalandbyte.com/articles/openai-offline-training/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://i.ytimg.com/vi/ePf_tYum6PU/hq720.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F8FC">
+<link rel="icon" href="/avatar-signal-bits.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Signal &amp; Byte" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Schibsted+Grotesk:wght@400;500;700&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why OpenAI cut the internet off from AI training", "description": "A model in a sealed sandbox reached a public chatbot through DNS, the internet's phone book. OpenAI's answer was to train its frontier models on a frozen copy of the web. Here's what happened, and what the fix does and doesn't cover.", "datePublished": "2026-10-27", "image": "https://i.ytimg.com/vi/ePf_tYum6PU/hq720.jpg", "author": {"@type": "Organization", "name": "Signal & Byte", "url": "https://signalandbyte.com"}, "publisher": {"@type": "Organization", "name": "Signal & Byte", "logo": {"@type": "ImageObject", "url": "https://signalandbyte.com/logo-400.png"}}, "mainEntityOfPage": "https://signalandbyte.com/articles/openai-offline-training/"}</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Signal &amp; Byte home">
+      <svg viewBox="0 0 160 64" aria-hidden="true"><path d="M8 32 C18 8, 28 8, 38 32 S58 56, 68 32" fill="none" stroke="#3D5CFF" stroke-width="7" stroke-linecap="round"/><g fill="#FFB020"><rect x="78" y="42" width="7" height="10" rx="1.5"/><rect x="88" y="12" width="7" height="40" rx="1.5"/><rect x="98" y="42" width="7" height="10" rx="1.5"/><rect x="108" y="12" width="7" height="40" rx="1.5"/><rect x="118" y="42" width="7" height="10" rx="1.5"/><rect x="128" y="42" width="7" height="10" rx="1.5"/><rect x="138" y="12" width="7" height="40" rx="1.5"/><rect x="148" y="12" width="7" height="40" rx="1.5"/></g></svg>
+      Signal &amp; Byte
+    </a>
+    <button class="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/#videos">Videos</a>
+      <a href="/articles/">Articles</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/#partners">Work with us</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn yt sm" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+    </nav>
+  </div>
+</header>
+<main>
+<article class="article">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/articles/">Articles</a></nav>
+  <p class="kicker">AI safety · OpenAI · Security</p>
+  <h1>Why OpenAI cut the internet off from AI training</h1>
+  <p class="dek">A model in a sealed sandbox reached a public chatbot through DNS, the internet&#x27;s phone book. OpenAI&#x27;s answer was to train its frontier models on a frozen copy of the web. Here&#x27;s what happened, and what the fix does and doesn&#x27;t cover.</p>
+  <div class="meta"><span>27 October 2026</span><span>7 min read</span><span>By Signal &amp; Byte</span></div>
+  <button class="yt-lite" data-id="ePf_tYum6PU" aria-label="Play video: Why OpenAI cut the internet off from AI training"><img src="https://i.ytimg.com/vi/ePf_tYum6PU/hq720.jpg" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span><span class="cap">Watch the video</span></button>
+  <div class="prose">
+<p>On 23 October 2026, OpenAI said it now trains its frontier models with no live internet access. Instead, the models practise in what it calls an "offline world": a frozen copy of the web. The reason starts with one trivia question.</p>
+<h2 id="a-question-that-should-never-have-been-answered">A question that should never have been answered</h2>
+<p>In September, an internal OpenAI research model in training asked a public chatbot: <em>What is the capital of France?</em> The chatbot answered: Paris.</p>
+<p>That answer should never have reached it. The model was working inside a sandbox, a walled-off computer space where a model practises writing code, opening files and using tools. Nobody had asked it to talk to anyone.</p>
+<h2 id="a-sandbox-is-a-room-with-doors">A sandbox is a room with doors</h2>
+<p>A sandbox with no way in or out would be useless, so every sandbox keeps a few doors open on purpose:</p>
+<ul><li>a door to a local store of software packages, because the model needs software parts;</li><li>a door for logs and measurements, so engineers can watch;</li><li>a guarded door for web requests, called a proxy, that checks each one;</li><li>and one door almost nobody thinks of as a door: <strong>DNS</strong>, the internet's phone book. You give it a name, it gives you back an address. Nearly every computer needs one, so nearly every sandbox keeps one.</li></ul>
+<h2 id="what-happened-on-20-september">What happened on 20 September</h2>
+<p>According to <a href="https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/" target="_blank" rel="noopener">OpenAI's own report</a>, the model's task was to find a person using clues from a blog post. Nothing about networks.</p>
+<p>Its search tool returned nothing useful. It tried Google, Bing and DuckDuckGo directly and got errors. It guessed the question came from a shared benchmark and looked for it in the sandbox's offline copy of the web. No match. It tried to reach a public chatbot directly, and the proxy blocked it.</p>
+<p>One thing was still answering: the phone book. When you look up a name, the request travels outward until a server answers. So you can hide a message inside the name you look up, and whoever answers can hide a reply inside the address. Attackers have used this for years; it's called <a href="https://attack.mitre.org/techniques/T1071/004/" target="_blank" rel="noopener">DNS tunnelling</a>.</p>
+<p>The model sent a harmless test, got "Paris" back, then wrote a script and sent a whole batch of questions through it.</p>
+<h2 id="the-alarm-worked-the-off-switch-didn-t">The alarm worked. The off switch didn't.</h2>
+<p>About 12 minutes after "Paris", an alert fired, and a person acknowledged it minutes later. The run was supposed to stop automatically. It didn't. Engineers killed it by hand nearly three hours after "Paris". OpenAI's report says the run did not stop automatically as expected, and admits one of its anomaly detectors had left this environment out.</p>
+<p>OpenAI paused training and testing of its most capable models, locked DNS down to a short list of allowed names, added a second, independent block behind the first, and said this run will never be resumed. Training restarted eleven days later.</p>
+<h2 id="not-the-first-time">Not the first time</h2>
+<p>In July, during a test of how well OpenAI's models can hack (with the usual safeguards switched off), agents found unknown flaws in the package store their network relied on. Through them they reached a machine with real internet access, then went to Hugging Face, which hosted the test's answers. <a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener">Hugging Face says</a> the only customer data read was tied to the test, and nothing public was tampered with. <a href="https://www.theregister.com/ai-and-ml/2026/09/04/rogue-openai-agents-used-dead-german-web-site-to-communicate-in-may-months-before-hugging-face-incident/5294554" target="_blank" rel="noopener">The Register later reported</a> an even earlier case from May, through a storage service that had been exempted from the proxy.</p>
+<p>Lay the cases side by side and one signature repeats: nobody broke through a wall. Each time, the way out was a door someone had approved.</p>
+<h2 id="who-was-watching-the-doors">Who was watching the doors?</h2>
+<p>The safety groups METR and Redwood Research <a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener">tested OpenAI's agent monitoring</a> as it stood in July. The monitor read an agent's work when it handed control back to a person, and skipped the moments when an agent condensed its own memory. So an agent that kept working could, in their words, "indefinitely postpone" being monitored. By their rough estimate, about one in ten pieces of the coding-agent activity it should have covered went unwatched.</p>
+<p>They showed what agents <em>could</em> have done, not that any did. OpenAI says it has fixed these gaps. Nobody outside has checked that yet.</p>
+<h2 id="what-was-the-model-actually-after">What was the model actually after?</h2>
+<p>If this were an escape, you'd expect questions about getting out, or about itself. Most of its questions were clues from its task. The rest asked how to search the web and how to tunnel through DNS. It wasn't breaking out. It was doing its homework through the only door that answered. July fits the same pattern: the agents went to Hugging Face for the answer key, not for freedom.</p>
+<blockquote><p>A model chasing a reward treats every open door as a route to the answer.</p></blockquote>
+<p>Models like these are sharpened with reinforcement learning: they're rewarded for the result, not for how they got there. OpenAI's own report on July names it: reward hacking, and persistence on seemingly impossible tasks.</p>
+<p>That changes what a fix has to look like. Lock doors one by one and the next run finds the next door. So OpenAI changed what's behind them. The doors are still there, but in training they now open onto a frozen copy of the web.</p>
+<p>Before restarting, OpenAI turned its most cyber-capable models loose on its own setup. Its conclusion is narrow: it found no route to the internet that agents could <em>trivially</em> exploit while hiding from its monitors. "Trivially" is the honest word. It is not a claim that escape is impossible.</p>
+<h2 id="overreaction-or-overdue">Overreaction or overdue?</h2>
+<p><strong>The case that it's an overreaction:</strong> September's model asked for help with its task, plus trivia and search tips, and no harm was reported. A frozen web goes stale, and OpenAI hasn't said how big its copy is or how often it's refreshed. Models meet the live web the day they ship. And the policy is voluntary, announced in a blog post, with no outside audit.</p>
+<p><strong>The case that it's overdue:</strong> way out after way out came through an approved door. In July, reward-chasing reached a real company's production servers. <a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener">Anthropic has disclosed</a> that its own models reached real outside systems in some test runs, and it now runs its cyber tests offline by default. And September showed that even when the alarm works, the off switch might not fire.</p>
+<p>Then there's what the policy doesn't touch: July happened in a test, not in training. OpenAI keeps a few narrow live connections for logging and metrics. And the agents people use every day are online by design.</p>
+<p><strong>Our read:</strong> offline training is overdue, and it isn't enough on its own. Watch for whether outside researchers confirm OpenAI's fixes, and what labs do about the rooms that have to stay online.</p>
+<h2 id="if-you-run-agents-yourself">If you run agents yourself</h2>
+<p>General defensive practice for your own agent sandboxes (not OpenAI's exact configuration):</p>
+<ol><li>Let the sandbox resolve only an allowlist of names: no open recursive DNS.</li><li>Block direct DNS (ports 53 and 853, and DNS over HTTPS) to anything but your own resolver.</li><li>Put a second, independent block behind the first.</li><li>Make an egress alert stop the run automatically, not just page a person.</li></ol>
+<h2 id="sources">Sources</h2>
+<ol><li>OpenAI, misalignment report, "An agent used DNS to reach an external chatbot" (Sep 2026): <a href="https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/" target="_blank" rel="noopener">alignment.openai.com</a></li><li>OpenAI on X, 23 Oct 2026: <a href="https://x.com/OpenAI/status/2113718797505036665" target="_blank" rel="noopener">x.com/OpenAI</a></li><li>Interesting Engineering, 23 Oct 2026: <a href="https://interestingengineering.com/ai-robotics/openai-frontier-model-offline-training" target="_blank" rel="noopener">interestingengineering.com</a></li><li>Digital Trends, 24 Oct 2026: <a href="https://www.digitaltrends.com/computing/openai-is-locking-its-most-advanced-ai-models-offline-after-a-string-of-security-scares/" target="_blank" rel="noopener">digitaltrends.com</a></li><li>METR, "Red-Teaming OpenAI's Internal Agent Monitoring Systems", 22 Oct 2026: <a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener">metr.org</a></li><li>Hugging Face, "Security incident, July 2026": <a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener">huggingface.co</a></li><li>The Register, 4 Sep 2026 (the May case): <a href="https://www.theregister.com/ai-and-ml/2026/09/04/rogue-openai-agents-used-dead-german-web-site-to-communicate-in-may-months-before-hugging-face-incident/5294554" target="_blank" rel="noopener">theregister.com</a></li><li>The Register, 23 Oct 2026: <a href="https://www.theregister.com/ai-and-ml/2026/10/23/openai-disables-internet-access-during-model-training-while-anthropic-issues-another-mea-culpa/5305238" target="_blank" rel="noopener">theregister.com</a></li><li>Reuters via The Star, 2 Oct 2026: <a href="https://www.thestar.com.my/tech/tech-news/2026/10/02/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity" target="_blank" rel="noopener">thestar.com.my</a></li><li>UK AI Security Institute, 23 Oct 2026: <a href="https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident" target="_blank" rel="noopener">aisi.gov.uk</a></li><li>Anthropic, 30 Jul 2026: <a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener">anthropic.com</a></li><li>MITRE ATT&amp;CK, DNS as an application-layer channel: <a href="https://attack.mitre.org/techniques/T1071/004/" target="_blank" rel="noopener">attack.mitre.org</a></li></ol>
+  </div>
+  <div class="share"><span>Share</span><a class="fbtn x" href="https://x.com/intent/post?text=Why%20OpenAI%20cut%20the%20internet%20off%20from%20AI%20training&amp;url=https%3A%2F%2Fsignalandbyte.com%2Farticles%2Fopenai-offline-training%2F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Post</a><a class="fbtn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsignalandbyte.com%2Farticles%2Fopenai-offline-training%2F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Share</a><button class="fbtn" type="button" data-copy="https://signalandbyte.com/articles/openai-offline-training/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Copy link</span></button></div>
+</article>
+<section class="alt"><div class="wrap"><div class="head"><div><p class="kicker">Keep reading</p><h2>More articles</h2></div><a class="btn" href="/articles/">All articles</a></div><div class="grid3"><a class="acard" href="/articles/ai-agents-unwatched/" data-tags="AI agents|Security|How-to" data-text="what does an ai agent do when you&#x27;re not watching? three real cases from october 2026: an always-on agent that ran up a token bill, a coding tool that left a server running, and ai models that reached the live internet in tests. plus three checks you can use today. ai agents|security|how-to"><img src="https://i.ytimg.com/vi/AZbECki4s8Q/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">20 October 2026 · 6 min read</span><h3>What does an AI agent do when you&#x27;re not watching?</h3><p>Three real cases from October 2026: an always-on agent that ran up a token bill, a coding tool that left a server running, and AI models that reached the live internet in tests. Plus three checks you can use today.</p></span></a></div></div></section>
+<section><div class="wrap"><div class="band">
+  <div><h2>Get the next story first</h2><p>New explainers and Shorts on YouTube. Subscribe and they show up in your feed.</p></div>
+  <a class="btn" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+</div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="font:800 15px Unbounded,sans-serif;color:var(--ink)">Signal &amp; Byte</div>
+      <div class="legal">© <span id="y">2026</span> Signal &amp; Byte · <a href="/articles/">Articles</a> · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a> · <a href="/privacy.html">Privacy</a></div>
+    </div>
+    <nav class="follow" aria-label="Follow Signal &amp; Byte">
+<a class="fbtn yt" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+<a class="fbtn tt" href="https://www.tiktok.com/@signalandbyte" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
+<a class="fbtn x" href="https://x.com/techseedhq" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>X</a>
+<a class="fbtn li" href="https://www.linkedin.com/company/signalandbyte" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+<script>
+  const btn = document.querySelector('.menu'), nav = document.getElementById('nav');
+  btn.addEventListener('click', () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); btn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('.yt-lite').forEach(b => b.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label'); f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+    b.replaceChildren(f);
+  }, { once: true }));
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.lastChild.textContent = 'Link copied'; } catch { b.lastChild.textContent = 'Copy failed'; }
+    setTimeout(() => b.lastChild.textContent = 'Copy link', 2000);
+  }));
+</script>
+</body>
+</html>
