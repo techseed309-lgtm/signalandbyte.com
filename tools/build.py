@@ -193,7 +193,7 @@ def load(collection):
         if not m:
             sys.exit(f"{f}: missing front matter")
         meta = dict(line.split(":", 1) for line in m.group(1).splitlines() if ":" in line)
-        meta = {k.strip(): v.strip() for k, v in meta.items()}
+        meta = {k.strip(): re.sub(r"^'(.*)'$|^\"(.*)\"$", lambda m: m.group(1) or m.group(2) or "", v.strip()) for k, v in meta.items()}
         for key in ("title", "description", "date"):
             if not meta.get(key):
                 sys.exit(f"{f}: front matter needs {key}")
