@@ -24,7 +24,7 @@ SOCIAL = [  # key, label, url, css class, call to action
     ("youtube", "YouTube", CHANNEL, "yt", "Explainers and Shorts"),
     ("tiktok", "TikTok", "https://www.tiktok.com/@signalandbyte", "tt", "Shorts, every story"),
     ("x", "X", "https://x.com/signalandbyte", "x", "Threads and quick takes"),
-    ("linkedin", "LinkedIn", "https://www.linkedin.com/company/signalandbyte", "li", "For builders and teams"),
+    ("linkedin", "LinkedIn", "https://www.linkedin.com/company/146885452", "li", "For builders and teams"),
 ]
 COLLECTIONS = {
     "articles": ("Articles", "Written explainers", "The story behind each video, in writing: what happened, how it works, and every source we used."),
