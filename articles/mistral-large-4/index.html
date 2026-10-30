@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mistral Large 4, decoded: open, huge, but cheap? · Signal &amp; Byte</title>
+<meta name="description" content="Mistral released the weights of a trillion-parameter model. In our five-job test it cost more per job than Gemini 3.8 Flash at default settings, until one setting cut the bill by about 80%. The prompts, the token counts, the hardware and the licence.">
+<link rel="canonical" href="https://signalandbyte.com/articles/mistral-large-4/">
+<meta property="og:site_name" content="Signal &amp; Byte">
+<meta property="og:title" content="Mistral Large 4, decoded: open, huge, but cheap? · Signal &amp; Byte">
+<meta property="og:description" content="Mistral released the weights of a trillion-parameter model. In our five-job test it cost more per job than Gemini 3.8 Flash at default settings, until one setting cut the bill by about 80%. The prompts, the token counts, the hardware and the licence.">
+<meta property="og:url" content="https://signalandbyte.com/articles/mistral-large-4/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://i.ytimg.com/vi/om2EtwDu0a0/hq720.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F8FC">
+<link rel="icon" href="/avatar-signal-bits.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Signal &amp; Byte" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Schibsted+Grotesk:wght@400;500;700&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mistral Large 4, decoded: open, huge, but cheap?", "description": "Mistral released the weights of a trillion-parameter model. In our five-job test it cost more per job than Gemini 3.8 Flash at default settings, until one setting cut the bill by about 80%. The prompts, the token counts, the hardware and the licence.", "datePublished": "2026-11-05", "image": "https://i.ytimg.com/vi/om2EtwDu0a0/hq720.jpg", "author": {"@type": "Organization", "name": "Signal & Byte", "url": "https://signalandbyte.com"}, "publisher": {"@type": "Organization", "name": "Signal & Byte", "logo": {"@type": "ImageObject", "url": "https://signalandbyte.com/logo-400.png"}}, "mainEntityOfPage": "https://signalandbyte.com/articles/mistral-large-4/"}</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Signal &amp; Byte home">
+      <svg viewBox="0 0 160 64" aria-hidden="true"><path d="M8 32 C18 8, 28 8, 38 32 S58 56, 68 32" fill="none" stroke="#3D5CFF" stroke-width="7" stroke-linecap="round"/><g fill="#FFB020"><rect x="78" y="42" width="7" height="10" rx="1.5"/><rect x="88" y="12" width="7" height="40" rx="1.5"/><rect x="98" y="42" width="7" height="10" rx="1.5"/><rect x="108" y="12" width="7" height="40" rx="1.5"/><rect x="118" y="42" width="7" height="10" rx="1.5"/><rect x="128" y="42" width="7" height="10" rx="1.5"/><rect x="138" y="12" width="7" height="40" rx="1.5"/><rect x="148" y="12" width="7" height="40" rx="1.5"/></g></svg>
+      Signal &amp; Byte
+    </a>
+    <button class="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/#videos">Videos</a>
+      <a href="/articles/">Articles</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/#partners">Work with us</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn yt sm" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+    </nav>
+  </div>
+</header>
+<main>
+<article class="article">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/articles/">Articles</a></nav>
+  <p class="kicker">AI · Models · Decoded</p>
+  <h1>Mistral Large 4, decoded: open, huge, but cheap?</h1>
+  <p class="dek">Mistral released the weights of a trillion-parameter model. In our five-job test it cost more per job than Gemini 3.8 Flash at default settings, until one setting cut the bill by about 80%. The prompts, the token counts, the hardware and the licence.</p>
+  <div class="meta"><span>5 November 2026</span><span>6 min read</span><span>By Signal &amp; Byte</span></div>
+  <button class="yt-lite" data-id="om2EtwDu0a0" aria-label="Play video: Mistral Large 4, decoded: open, huge, but cheap?"><img src="https://i.ytimg.com/vi/om2EtwDu0a0/hq720.jpg" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span><span class="cap">Watch the video</span></button>
+  <div class="prose">
+<p>Mistral published the full weights of <strong>Mistral Large 4</strong> on Hugging Face on 29 October 2026. In our own test it still cost more per job than a closed model from Google, until we changed one setting and the bill fell by about 80%. Here is what was released, why "open" doesn't mean it runs on your computer, what it costs per job instead of per token, the setting, and what the licence lets you build and sell.</p>
+<h2 id="what-changed">What changed</h2>
+<ul><li>The weights are out (8-bit, a 4-bit version for NVIDIA's newest chips, and community llama.cpp conversions). Developers could already call the model through Mistral's API since early October.</li><li>The API price is now <strong>$0.70 per million input tokens and $2.10 per million output tokens</strong>, about half the preview list price ($1.36 / $4.18).</li></ul>
+<h2 id="how-it-works">How it works</h2>
+<p>About <strong>1.05 trillion parameters</strong> are stored, but only about <strong>52 billion</strong> work on any single word. Most layers are teams of 128 smaller "experts"; a router picks four for each word, plus one shared expert every word goes through. That is why it can be served cheaply, and why the whole model still has to sit in memory.</p>
+<h2 id="what-it-takes-to-run">What it takes to run</h2>
+<ul><li>2-bit community version: one Apple Silicon Ultra machine with 512 GB of memory.</li><li>Mistral's 4-bit version: four of NVIDIA's top Blackwell data-centre GPUs (Mistral's figure).</li><li>8-bit version: eight NVIDIA H200s (Hugging Face's deployment recipe).</li></ul>
+<p>Not a laptop, not a gaming PC. What the open weights really give is control: a company, university or host can run it on hardware they control, with no outside provider deciding what it may answer.</p>
+<h2 id="price-per-token-vs-price-per-job">Price per token vs price per job</h2>
+<p>Artificial Analysis puts Mistral Large 4 at <strong>26</strong> on its Intelligence Index v5, at about <strong>$2.06 per task</strong>; Gemini 4 Carbon scores 59 at about $7.76 per task. Its own page calls Large 4 "somewhat verbose".</p>
+<h3 id="our-test-30-oct-2026-one-run-each-demo-data">Our test (30 Oct 2026, one run each, demo data)</h3>
+<p>Same five everyday paid jobs, output tokens per job (thinking included):</p>
+<div class="table-wrap"><table><thead><tr><th>Job</th><th>Mistral default</th><th>Mistral high</th><th>Mistral low</th><th>Gemini 3.8 Flash</th></tr></thead><tbody><tr><td>Invoice → JSON</td><td>2,138</td><td>1,881</td><td>947</td><td>923</td></tr><tr><td>Contract risk review</td><td>2,777</td><td>3,435</td><td>1,285</td><td>1,748</td></tr><tr><td>Backup script</td><td>12,473</td><td>8,984</td><td>751</td><td>3,827</td></tr><tr><td>Python bug fix</td><td>5,287</td><td>6,980</td><td>901</td><td>1,671</td></tr><tr><td>German support reply</td><td>1,955</td><td>1,050</td><td>580</td><td>error (HTTP 503)</td></tr></tbody></table></div>
+<ul><li>Default Mistral wrote about 24,600 output tokens for roughly 1,800 words of answers: most of the bill was thinking you never see.</li><li>On the four jobs both models answered, default Mistral cost about <strong>55% more</strong> than Gemini 3.8 Flash at Google's paid list price ($0.75 / $3.75), despite cheaper tokens.</li><li>With <strong><code>"reasoning_effort": "low"</code></strong> Mistral wrote about 82% fewer tokens; all five jobs together cost under one cent, about 70% cheaper than Flash on the shared jobs, in about a third of the time.</li><li>Quality on low: four of five answers correct and usable; the bug fix missed the empty-list case that the default caught.</li></ul>
+<p>This is a small test. Run your own jobs before you move a real workload, and on Mistral's free plan your prompts may be used for training, so test with demo data.</p>
+<h3 id="the-request">The request</h3>
+<pre><code>{
+  "model": "mistral-large-4",
+  "messages": [{"role": "user", "content": "…"}],
+  "reasoning_effort": "low"
+}</code></pre>
+<h3 id="the-five-prompts-copy-them">The five prompts (copy them)</h3>
+<h3 id="1-invoice-json">1. Invoice → JSON</h3>
+<pre><code>Extract these fields as JSON (vendor, invoice_number, date ISO-8601, currency, subtotal, tax, total, line_items[{description, qty, unit_price}]). Check that the numbers add up and add a field 'mismatch' with any problem you find.
+
+INVOICE
+Northwind Print Co. - Invoice #NW-20431 - 14 Oct 2026
+3 x A2 posters @ 18.50
+250 x business cards @ 0.12
+Design hour x 2 @ 45.00
+Subtotal 175.50
+VAT 20% 35.10
+Total 210.60 EUR</code></pre>
+<h3 id="2-contract-risk-review">2. Contract risk review</h3>
+<pre><code>You are reviewing a freelance web-development contract for the freelancer. List every clause below that is risky for the freelancer, explain why in one sentence each, and propose replacement wording.
+
+1. The Client may request unlimited revisions until satisfied.
+2. Payment is due 90 days after final approval.
+3. All intellectual property, including pre-existing code libraries of the Developer, transfers to the Client on signature.
+4. The Developer is liable for any loss of revenue caused by downtime of the website, without limit.
+5. Either party may end this agreement with 7 days' written notice; work completed up to that date will be paid.</code></pre>
+<h3 id="3-backup-script">3. Backup script</h3>
+<pre><code>Write a bash script for Ubuntu that backs up /var/www and a PostgreSQL database named shop to /backups with a date-stamped filename, keeps only the last 14 backups, logs to /var/log/backup.log, exits non-zero on any failure, and show the crontab line to run it nightly at 02:30.</code></pre>
+<h3 id="4-python-bug-fix">4. Python bug fix</h3>
+<pre><code>This Python function should return the median of a list of numbers but fails on some inputs. Find every bug, explain each in one line, and give the fixed function with three test cases.
+
+def median(xs):
+    xs.sort()
+    n = len(xs)
+    if n % 2 == 1:
+        return xs[n/2]
+    return (xs[n/2] + xs[n/2 + 1]) / 2</code></pre>
+<h3 id="5-german-support-reply">5. German support reply</h3>
+<pre><code>A customer wrote (in German): 'Ich habe vor drei Wochen bestellt, die Sendungsverfolgung zeigt seit zehn Tagen nichts an und niemand antwortet. Ich will mein Geld zurück.' Write the reply from a small online shop: apologise, explain the next step (we open a carrier investigation today, refund in full if not found within 5 working days, or the customer can choose an immediate refund now), and keep it under 120 words. Give the reply in German and an English translation.</code></pre>
+<h2 id="where-it-s-strong-and-the-case-against">Where it's strong, and the case against</h2>
+<p>By Mistral's own numbers it is strongest at cyber defence, finance, legal work and images (51% on the Artificial Analysis Cyber Index; 93% of Cybench challenges, from its 6 October launch post; the technical report isn't out yet). The case for it is control: run it inside your own walls. The case against is the independent scores: on the broad index it sits far below the closed frontier models.</p>
+<h2 id="the-licence">The licence</h2>
+<p>A modified MIT licence. You can use it, change it, fine-tune it and sell copies of what you build, including products where the model powers features inside your app (a contract checker, a support inbox that drafts replies, an invoice reader). Selling the model itself as a service, where other people get raw access and control the prompts, settings or training data, needs a separate commercial licence from Mistral. Keep Mistral's copyright notice in what you ship. There is no revenue threshold in the text. (A summary, not legal advice.)</p>
+<h2 id="who-should-switch">Who should switch</h2>
+<ul><li>Lots of routine API jobs: try it on low effort against what you pay now, and count tokens, not prices.</li><li>Data that can't leave your building: one of the strongest open models you can run yourself, given the hardware.</li><li>The hardest open-ended problems: a closed frontier model is still ahead.</li></ul>
+<p>Try it: sign in to Mistral Studio, open API Keys, create a key, then send your own jobs on low and on high and compare the token counts.</p>
+<h2 id="sources">Sources</h2>
+<ul><li>Mistral, Mistral Large 4 open weights: https://mistral.ai/news/mistral-large-4-oss/</li><li>Mistral docs, Mistral Large 4 (price, context): https://docs.mistral.ai/models/mistral-large-4-0</li><li>Mistral docs, reasoning effort: https://docs.mistral.ai/capabilities/reasoning</li><li>Hugging Face, Welcome Le Chonk: https://huggingface.co/blog/mistral-large4</li><li>Hugging Face model page and LICENSE: https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B</li><li>Artificial Analysis, Mistral Large 4: https://artificialanalysis.ai/models/mistral-large-4</li><li>Artificial Analysis, Gemini 4 Carbon: https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1</li><li>Google, Gemini API pricing: https://ai.google.dev/gemini-api/docs/pricing</li></ul>
+  </div>
+  <div class="share"><span>Share</span><a class="fbtn x" href="https://x.com/intent/post?text=Mistral%20Large%204%2C%20decoded%3A%20open%2C%20huge%2C%20but%20cheap%3F&amp;url=https%3A%2F%2Fsignalandbyte.com%2Farticles%2Fmistral-large-4%2F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Post</a><a class="fbtn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsignalandbyte.com%2Farticles%2Fmistral-large-4%2F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Share</a><button class="fbtn" type="button" data-copy="https://signalandbyte.com/articles/mistral-large-4/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Copy link</span></button></div>
+</article>
+<section class="alt"><div class="wrap"><div class="head"><div><p class="kicker">Keep reading</p><h2>More articles</h2></div><a class="btn" href="/articles/">All articles</a></div><div class="grid3"><a class="acard" href="/articles/touch-macbook-pro/" data-tags="Apple|Laptops|Review" data-text="the touch macbook pro: what the $400 actually buys apple&#x27;s first touch-screen mac has the same m5 pro chip as the macbook pro next to it and costs $400 more. the oled panel, touch, weight, battery, every price, the windows rivals, and who should buy which. apple|laptops|review"><img src="https://i.ytimg.com/vi/y05wqXEKYuQ/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">4 November 2026 · 5 min read</span><h3>The touch MacBook Pro: what the $400 actually buys</h3><p>Apple&#x27;s first touch-screen Mac has the same M5 Pro chip as the MacBook Pro next to it and costs $400 more. The OLED panel, touch, weight, battery, every price, the Windows rivals, and who should buy which.</p></span></a><a class="acard" href="/articles/ai-stress-test/" data-tags="AI tools|Comparison|Stress Test" data-text="you don&#x27;t buy a model, you buy a plan: 3 ai apps, 9 prompts, real clocks we gave gpt-6 astra, claude fable 5.1 and gemini 4 argon the same nine prompts in their own apps and timed every answer. who got what right, who was fastest, and which plan gives you the most for the money. ai tools|comparison|stress test"><img src="https://i.ytimg.com/vi/cs13zPDHkDg/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">3 November 2026 · 4 min read</span><h3>You don&#x27;t buy a model, you buy a plan: 3 AI apps, 9 prompts, real clocks</h3><p>We gave GPT-6 Astra, Claude Fable 5.1 and Gemini 4 Argon the same nine prompts in their own apps and timed every answer. Who got what right, who was fastest, and which plan gives you the most for the money.</p></span></a><a class="acard" href="/articles/email-digest-agent/" data-tags="AI tools|Automation|Build" data-text="the inbox problem is a deciding problem: a free n8n email digest agent we built an email agent in n8n with gmail and google&#x27;s gemini that reads the whole inbox and sends one daily digest. how it works in nine steps, what it costs, and who can use or set it up for others. ai tools|automation|build"><img src="https://i.ytimg.com/vi/wvA0A8yPtqw/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">28 October 2026 · 4 min read</span><h3>The inbox problem is a deciding problem: a free n8n email digest agent</h3><p>We built an email agent in n8n with Gmail and Google&#x27;s Gemini that reads the whole inbox and sends one daily digest. How it works in nine steps, what it costs, and who can use or set it up for others.</p></span></a></div></div></section>
+<section><div class="wrap"><div class="band">
+  <div><h2>Get the next story first</h2><p>New explainers and Shorts on YouTube. Subscribe and they show up in your feed.</p></div>
+  <a class="btn" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+</div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="font:800 15px Unbounded,sans-serif;color:var(--ink)">Signal &amp; Byte</div>
+      <div class="legal">© <span id="y">2026</span> Signal &amp; Byte · <a href="/articles/">Articles</a> · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a> · <a href="/privacy.html">Privacy</a></div>
+    </div>
+    <nav class="follow" aria-label="Follow Signal &amp; Byte">
+<a class="fbtn yt" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+<a class="fbtn tt" href="https://www.tiktok.com/@signalandbyte" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
+<a class="fbtn x" href="https://x.com/signalandbyte" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>X</a>
+<a class="fbtn li" href="https://www.linkedin.com/company/146885452" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+<script>
+  const btn = document.querySelector('.menu'), nav = document.getElementById('nav');
+  btn.addEventListener('click', () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); btn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('.yt-lite').forEach(b => b.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label'); f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+    b.replaceChildren(f);
+  }, { once: true }));
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.lastChild.textContent = 'Link copied'; } catch { b.lastChild.textContent = 'Copy failed'; }
+    setTimeout(() => b.lastChild.textContent = 'Copy link', 2000);
+  }));
+</script>
+</body>
+</html>

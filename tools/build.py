@@ -157,9 +157,32 @@ def markdown(src):
             out.append(f"<{kind}>" + "".join(f"<li>{inline(i)}</li>" for i in items) + f"</{kind}>")
         para, items, kind = [], [], None
 
-    quote = []
+    quote, code, table = [], None, []
+
+    def flush_table():
+        nonlocal table
+        if table:
+            rows = [[c.strip() for c in r.strip().strip("|").split("|")] for r in table
+                    if not re.fullmatch(r"\|?[\s:|-]+\|?", r.strip())]
+            head_row, body = rows[0], rows[1:]
+            out.append('<div class="table-wrap"><table><thead><tr>' + "".join(f"<th>{inline(c)}</th>" for c in head_row)
+                       + "</tr></thead><tbody>" + "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in body)
+                       + "</tbody></table></div>")
+            table = []
+
     for line in src.splitlines() + [""]:
         s = line.rstrip()
+        if s.startswith("```"):  # fenced code block: kept verbatim
+            if code is None:
+                flush(); flush_table(); code = []
+            else:
+                out.append("<pre><code>" + html.escape("\n".join(code), quote=False) + "</code></pre>"); code = None
+            continue
+        if code is not None:
+            code.append(line); continue
+        if s.startswith("|"):  # pipe table
+            flush(); table.append(s); continue
+        flush_table()
         if s.startswith(">"):
             flush(); quote.append(s[1:].strip()); continue
         if quote:
