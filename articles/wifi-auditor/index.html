@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is your Wi-Fi password crackable? Build a free auditor and find out · Signal &amp; Byte</title>
+<meta name="description" content="Wi-Fi guessing happens offline, so the only real lock is your password&#x27;s length. We built a free tool that estimates your own crack-time, checks the doors that ignore your password (WPS, evil twins, defaults) and grades your network, with the one thing to fix first.">
+<link rel="canonical" href="https://signalandbyte.com/articles/wifi-auditor/">
+<meta property="og:site_name" content="Signal &amp; Byte">
+<meta property="og:title" content="Is your Wi-Fi password crackable? Build a free auditor and find out · Signal &amp; Byte">
+<meta property="og:description" content="Wi-Fi guessing happens offline, so the only real lock is your password&#x27;s length. We built a free tool that estimates your own crack-time, checks the doors that ignore your password (WPS, evil twins, defaults) and grades your network, with the one thing to fix first.">
+<meta property="og:url" content="https://signalandbyte.com/articles/wifi-auditor/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://i.ytimg.com/vi/xwoUZkj0ytw/hq720.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F8FC">
+<link rel="icon" href="/avatar-signal-bits.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Signal &amp; Byte" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Schibsted+Grotesk:wght@400;500;700&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Is your Wi-Fi password crackable? Build a free auditor and find out", "description": "Wi-Fi guessing happens offline, so the only real lock is your password's length. We built a free tool that estimates your own crack-time, checks the doors that ignore your password (WPS, evil twins, defaults) and grades your network, with the one thing to fix first.", "datePublished": "2026-11-09", "image": "https://i.ytimg.com/vi/xwoUZkj0ytw/hq720.jpg", "author": {"@type": "Organization", "name": "Signal & Byte", "url": "https://signalandbyte.com"}, "publisher": {"@type": "Organization", "name": "Signal & Byte", "logo": {"@type": "ImageObject", "url": "https://signalandbyte.com/logo-400.png"}}, "mainEntityOfPage": "https://signalandbyte.com/articles/wifi-auditor/"}</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Signal &amp; Byte home">
+      <svg viewBox="0 0 160 64" aria-hidden="true"><path d="M8 32 C18 8, 28 8, 38 32 S58 56, 68 32" fill="none" stroke="#3D5CFF" stroke-width="7" stroke-linecap="round"/><g fill="#FFB020"><rect x="78" y="42" width="7" height="10" rx="1.5"/><rect x="88" y="12" width="7" height="40" rx="1.5"/><rect x="98" y="42" width="7" height="10" rx="1.5"/><rect x="108" y="12" width="7" height="40" rx="1.5"/><rect x="118" y="42" width="7" height="10" rx="1.5"/><rect x="128" y="42" width="7" height="10" rx="1.5"/><rect x="138" y="12" width="7" height="40" rx="1.5"/><rect x="148" y="12" width="7" height="40" rx="1.5"/></g></svg>
+      Signal &amp; Byte
+    </a>
+    <button class="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/#videos">Videos</a>
+      <a href="/articles/">Articles</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/#partners">Work with us</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn yt sm" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+    </nav>
+  </div>
+</header>
+<main>
+<article class="article">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/articles/">Articles</a></nav>
+  <p class="kicker">Security · Build · Networking</p>
+  <h1>Is your Wi-Fi password crackable? Build a free auditor and find out</h1>
+  <p class="dek">Wi-Fi guessing happens offline, so the only real lock is your password&#x27;s length. We built a free tool that estimates your own crack-time, checks the doors that ignore your password (WPS, evil twins, defaults) and grades your network, with the one thing to fix first.</p>
+  <div class="meta"><span>9 November 2026</span><span>3 min read</span><span>By Signal &amp; Byte</span></div>
+  <button class="yt-lite" data-id="xwoUZkj0ytw" aria-label="Play video: Is your Wi-Fi password crackable? Build a free auditor and find out"><img src="https://i.ytimg.com/vi/xwoUZkj0ytw/hq720.jpg" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span><span class="cap">Watch the video</span></button>
+  <div class="prose">
+<p>A stranger parked outside your house should not be able to open your Wi-Fi. Whether they can comes down to one thing most people never think about: how long your password is. So we built a small, free tool that checks your <strong>own</strong> network the way an attacker would look at it, tells you in plain time whether your password would hold, and then checks the ways in that ignore your password completely. <strong>The script, a Windows app and a Claude/ChatGPT skill are free on <a href="https://github.com/techseed309-lgtm/wifi-auditor" target="_blank" rel="noopener">our GitHub</a>.</strong></p>
+<blockquote><p>This is a defensive audit of a network you own. Testing a network you don't own or have written permission for is a crime (US CFAA, UK Computer Misuse Act, and equivalents). Nothing here touches anyone else's network.</p></blockquote>
+<h2 id="why-the-only-real-lock-is-length">Why the only real lock is length</h2>
+<p>When someone attacks Wi-Fi, the guessing does not happen at your router, where a wrong try is slow and noticed. They record the brief "handshake" your device and router exchange when you connect, take it away, and guess against it <strong>offline</strong>, on their own machine, as fast as their hardware allows. Nothing can slow them down there.</p>
+<p>That changes what a strong password means. A short or common one falls to a public leaked-password list almost instantly. Length is what wins: every extra character multiplies the time. Four random, unrelated words run past any realistic attacker's patience, and past their lifetime. WPA3's newer handshake (SAE) closes the offline-guessing door, but only when every device uses it; a mixed WPA2/WPA3 network can still be pushed down the old path.</p>
+<h2 id="the-doors-that-ignore-your-password">The doors that ignore your password</h2>
+<p>A perfect password still won't save you if another door is open, and most break-ins use one:</p>
+<ul><li><strong>WPS</strong> — the "push to connect" PIN. With a weak router, the Pixie-Dust method can recover the key in seconds, no matter how strong your password is.</li><li><strong>The evil twin</strong> — a fake network using your name and a "re-enter your Wi-Fi password" page. You type it in; they catch it.</li><li><strong>Default keys</strong> — routers shipped with a predictable password derived from the network name.</li><li><strong>The admin sticker</strong> — the router's own login left at the factory default, so the password can be read straight off the settings page.</li><li><strong>A downgrade</strong> — forcing a mixed network onto the older WPA2 path, where offline guessing works again.</li></ul>
+<h2 id="the-tool-two-checks-and-a-report-card">The tool: two checks and a report card</h2>
+<p>The auditor runs locally and gives your network a grade from A to F, with a ranked, do-it-tonight fix list.</p>
+<ol><li><strong>Password verdict (offline).</strong> Is your passphrase in a public leaked list, and how long would it take to brute-force at several hardware speeds. The passphrase never leaves your machine.</li><li><strong>Router check.</strong> It reads what your computer already knows: your security mode (WPA2/WPA3), the cipher, and whether your network name leaks your router's make and model. The few facts only the router knows (WPS, management-frame protection, firmware, admin password, guest network) it asks you to confirm, and marks clearly as <em>you told us</em> versus <em>we measured</em>.</li><li><strong>Neighbourhood check (passive).</strong> A read-only look at the networks in range for a second one using your name (the tell-tale of an evil twin) and for open networks. It never attacks, deauthenticates or connects to anything.</li></ol>
+<p>An honest note built into the tool: no laptop can read your router's WPS state or firmware date over the air, and the crack times are labelled estimates. A real attacker with GPUs is faster than a laptop, and the tool says so.</p>
+<h2 id="fix-it-tonight-in-seven-steps">Fix it tonight, in seven steps</h2>
+<ol><li>Set a long passphrase: four or more random, unrelated words.</li><li>Turn on WPA3 (or WPA2/WPA3), and WPA3-only once all your devices support it.</li><li>Turn WPS off.</li><li>Turn on management-frame protection (PMF).</li><li>Change the router's admin password from the default.</li><li>Put smart-home gadgets on a separate guest network.</li><li>Update the router's firmware.</li></ol>
+<h2 id="who-it-s-for">Who it's for</h2>
+<p>Anyone who wants to stop guessing whether their home network is fine. It's also a real service you could offer others, with written permission: a home-network security check that produces a clear, graded report and a fix list. Everything needed to run it, and a written guide, is free in the <a href="https://github.com/techseed309-lgtm/wifi-auditor" target="_blank" rel="noopener">repo</a>.</p>
+<p>Watch the full build on YouTube, and subscribe for a new build and explainer each week.</p>
+  </div>
+  <div class="share"><span>Share</span><a class="fbtn x" href="https://x.com/intent/post?text=Is%20your%20Wi-Fi%20password%20crackable%3F%20Build%20a%20free%20auditor%20and%20find%20out&amp;url=https%3A%2F%2Fsignalandbyte.com%2Farticles%2Fwifi-auditor%2F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Post</a><a class="fbtn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsignalandbyte.com%2Farticles%2Fwifi-auditor%2F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Share</a><button class="fbtn" type="button" data-copy="https://signalandbyte.com/articles/wifi-auditor/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Copy link</span></button></div>
+</article>
+<section class="alt"><div class="wrap"><div class="head"><div><p class="kicker">Keep reading</p><h2>More articles</h2></div><a class="btn" href="/articles/">All articles</a></div><div class="grid3"><a class="acard" href="/articles/stop-thinking/" data-tags="AI|Future of Dev|Research" data-text="is ai making you stop thinking? the real answer the three rungs of ai (answers, tasks, judgement), how far each one really is, when superintelligence might arrive, what the newest 2026 studies say about ai and the way we think, and five habits to keep. ai|future of dev|research"><img src="https://i.ytimg.com/vi/V_KoB9G6s7s/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">8 November 2026 · 4 min read</span><h3>Is AI making you stop thinking? The real answer</h3><p>The three rungs of AI (answers, tasks, judgement), how far each one really is, when superintelligence might arrive, what the newest 2026 studies say about AI and the way we think, and five habits to keep.</p></span></a><a class="acard" href="/articles/mistral-large-4/" data-tags="AI|Models|Decoded" data-text="mistral large 4, decoded: open, huge, but cheap? mistral released the weights of a trillion-parameter model. in our five-job test it cost more per job than gemini 3.8 flash at default settings, until one setting cut the bill by about 80%. the prompts, the token counts, the hardware and the licence. ai|models|decoded"><img src="https://i.ytimg.com/vi/om2EtwDu0a0/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">5 November 2026 · 6 min read</span><h3>Mistral Large 4, decoded: open, huge, but cheap?</h3><p>Mistral released the weights of a trillion-parameter model. In our five-job test it cost more per job than Gemini 3.8 Flash at default settings, until one setting cut the bill by about 80%. The prompts, the token counts, the hardware and the licence.</p></span></a><a class="acard" href="/articles/touch-macbook-pro/" data-tags="Apple|Laptops|Review" data-text="the touch macbook pro: what the $400 actually buys apple&#x27;s first touch-screen mac has the same m5 pro chip as the macbook pro next to it and costs $400 more. the oled panel, touch, weight, battery, every price, the windows rivals, and who should buy which. apple|laptops|review"><img src="https://i.ytimg.com/vi/y05wqXEKYuQ/hq720.jpg" alt="" loading="lazy" width="1280" height="720"><span class="body"><span class="meta">4 November 2026 · 5 min read</span><h3>The touch MacBook Pro: what the $400 actually buys</h3><p>Apple&#x27;s first touch-screen Mac has the same M5 Pro chip as the MacBook Pro next to it and costs $400 more. The OLED panel, touch, weight, battery, every price, the Windows rivals, and who should buy which.</p></span></a></div></div></section>
+<section><div class="wrap"><div class="band">
+  <div><h2>Get the next story first</h2><p>New explainers and Shorts on YouTube. Subscribe and they show up in your feed.</p></div>
+  <a class="btn" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+</div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="font:800 15px Unbounded,sans-serif;color:var(--ink)">Signal &amp; Byte</div>
+      <div class="legal">© <span id="y">2026</span> Signal &amp; Byte · <a href="/articles/">Articles</a> · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a> · <a href="/privacy.html">Privacy</a></div>
+    </div>
+    <nav class="follow" aria-label="Follow Signal &amp; Byte">
+<a class="fbtn yt" href="https://www.youtube.com/channel/UCQav0b3vZaTlio1zetRh4ig" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+<a class="fbtn tt" href="https://www.tiktok.com/@signalandbyte" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
+<a class="fbtn x" href="https://x.com/signalandbyte" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>X</a>
+<a class="fbtn li" href="https://www.linkedin.com/company/146885452" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+<script>
+  const btn = document.querySelector('.menu'), nav = document.getElementById('nav');
+  btn.addEventListener('click', () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); btn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('.yt-lite').forEach(b => b.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label'); f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+    b.replaceChildren(f);
+  }, { once: true }));
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.lastChild.textContent = 'Link copied'; } catch { b.lastChild.textContent = 'Copy failed'; }
+    setTimeout(() => b.lastChild.textContent = 'Copy link', 2000);
+  }));
+</script>
+</body>
+</html>
